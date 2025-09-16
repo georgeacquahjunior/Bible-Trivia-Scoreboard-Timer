@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Bible Trivia — Scoreboard & Timer</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div>
+        <h1>Bible Trivia — Scoreboard & Timer</h1>
+        <div class="sub">Add players, update points quickly and run a countdown for each round.</div>
+      </div>
+      <div class="sub">Persistent locally · Built for quick games</div>
+    </header>
+
+    <div class="grid">
+      <!-- Scoreboard -->
+      <section class="card" id="scorecard">
+        <div class="controls">
+          <input id="newName" type="text" placeholder="New player or team name" />
+          <input id="startPoints" type="number" placeholder="Start points (0)" style="width:120px" />
+          <button id="addPlayerBtn">Add player</button>
+          <button id="resetBtn" class="ghost">Reset all</button>
+        </div>
+
+        <div style="display:flex;justify-content:space-between;align-items:center">
+          <div class="sub">Players</div>
+          <div class="sub">Total teams: <span id="teamCount">0</span></div>
+        </div>
+
+        <table id="playersTable">
+          <thead>
+            <tr>
+              <th style="width:46%">Name</th>
+              <th style="width:18%">Points</th>
+              <th style="width:36%">Actions</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+
+        <div style="margin-top:12px;display:flex;justify-content:space-between;align-items:center">
+          <div class="sub">Leaderboard</div>
+          <div style="display:flex;gap:8px;align-items:center">
+            <label class="sub">Sort:</label>
+            <select id="sortSelect">
+              <option value="-points">Highest points</option>
+              <option value="points">Lowest points</option>
+              <option value="name">Name A–Z</option>
+            </select>
+          </div>
+        </div>
+      </section>
+
+      <!-- Timer -->
+      <aside class="card timer-big" id="timerCard">
+        <div class="sub">Round Timer</div>
+        <div class="clock" id="clock">05:00</div>
+
+        <div class="timer-controls">
+          <button id="startBtn">Start</button>
+          <button id="pauseBtn" class="ghost">Pause</button>
+          <button id="resetTimerBtn" class="ghost">Reset</button>
+        </div>
+
+        <div style="width:100%">
+          <div style="margin-top:10px;display:flex;gap:8px">
+            <input id="minutesInput" type="number" min="0" placeholder="Min" style="width:70px" />
+            <input id="secondsInput" type="number" min="0" max="59" placeholder="Sec" style="width:70px" />
+            <button id="setBtn" class="ghost">Set</button>
+          </div>
+
+          <div class="preset-list">
+            <div class="preset" data-min="1">1:00</div>
+            <div class="preset" data-min="2">2:00</div>
+            <div class="preset" data-min="3">3:00</div>
+            <div class="preset" data-min="5">5:00</div>
+            <div class="preset" data-min="10">10:00</div>
+          </div>
+        </div>
+
+        <div class="sub" style="margin-top:12px">When timer reaches zero the page will beep.</div>
+      </aside>
+    </div>
+
+    <footer>
+      <div>Tip: click a player's + to add the points in the "add" input quickly.</div>
+      <div>Made for quick Bible trivia nights ✨</div>
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
